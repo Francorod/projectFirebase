@@ -32,6 +32,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         docRef = Firestore.firestore().collection("sampleData").document("inspiration")
+            
         
     }
     override func didReceiveMemoryWarning() {

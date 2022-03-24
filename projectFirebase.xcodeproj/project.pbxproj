@@ -68,10 +68,10 @@
 				9D7AD70C27ECD87600F5D905 /* AppDelegate.swift */,
 				9D7AD70E27ECD87600F5D905 /* SceneDelegate.swift */,
 				9D7AD71027ECD87600F5D905 /* ViewController.swift */,
-				9D7F0DF027ED03CA0030F6DE /* GoogleService-Info.plist */,
 				9D7AD71227ECD87600F5D905 /* Main.storyboard */,
 				9D7AD71527ECD87800F5D905 /* Assets.xcassets */,
 				9D7AD71727ECD87800F5D905 /* LaunchScreen.storyboard */,
+				9D7F0DF027ED03CA0030F6DE /* GoogleService-Info.plist */,
 				9D7AD71A27ECD87800F5D905 /* Info.plist */,
 			);
 			path = projectFirebase;
