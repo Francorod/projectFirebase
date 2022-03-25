@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         let dataToSave: [String: Any] = ["quote": quoteText, "author": quoteAuthor]
         docRef.setData(dataToSave) { ( error ) in
             if let error = error {
-                print("Oh no! Got an error \(error.localizedDescription)" )
+                print("Oh no! Got an error! \(error.localizedDescription)" )
             }else {
                 print("Data has been saved")
             }
