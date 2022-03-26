@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 
 class ViewController: UIViewController {
     
@@ -15,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var authorTextField: UITextField!
     
     var docRef: DocumentReference!
+    var quoteListener: ListenerRegistration!
     
     @IBAction func saveTapped(_ sender: UIButton) {
         guard  let quoteText = quoteTextField.text, !quoteText.isEmpty else { return }
@@ -28,15 +30,25 @@ class ViewController: UIViewController {
             }
         }
     }
-    
+    @IBAction func fetchTapped(_ sender: UIButton) {
+        docRef.getDocument { (docSnapshot, error) in
+            guard let docSnapshot = docSnapshot, docSnapshot.exists else { return }
+            let myData = docSnapshot.data()
+            let latestQuote = myData?["quote"] as? String ?? ""
+            let quoteAuthor = myData!["author"] as? String ?? "(none)"
+            self.quoteLabel.text = "\"\(latestQuote)\" -- \(quoteAuthor)"
+            
+        }
+    }
+                                   
     override func viewDidLoad() {
-        super.viewDidLoad()
-        docRef = Firestore.firestore().collection("sampleData").document("inspiration")
-        
-        
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-}
+            super.viewDidLoad()
+            docRef = Firestore.firestore().document("SmpleData/inspiration")
+            
+            
+        }
+                                   override func didReceiveMemoryWarning() {
+            super.didReceiveMemoryWarning()
+        }
+                                   
+                                   }
